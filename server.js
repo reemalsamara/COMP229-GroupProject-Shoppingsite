@@ -15,5 +15,5 @@ app.use("/api/products", require("./backend/routes/productRoutes"));
 // Connect to DB and start server
 connectDB();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
