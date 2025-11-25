@@ -4,12 +4,9 @@ const {
   getProduct,
   createProduct,
   updateProduct,
-  deleteProduct
+  deleteProduct,
 } = require("../controllers/productController");
-const {
-  authMiddleware,
-  isAdmin
-} = require("../middleware/authMiddleware");
+const { authMiddleware, isAdmin } = require("../middleware/authMiddleware");
 
 const router = express.Router();
 
