@@ -1,10 +1,15 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./backend/config/db");
+const cors = require('cors');
 
 dotenv.config();
 
 const app = express();
+app.use(cors({
+            origin: 'https://localhost:3000/' // or '*' for all origins
+        }));
+
 app.use(express.json());
 
 // Routes

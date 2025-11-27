@@ -27,13 +27,21 @@ const Products = () => {
 
     return (
         <div>
-            <h2>Products</h2>
+            {/*<h2>Products</h2>
 
             {user?.role === "admin" && (
                 <button onClick={() => navigate("/products/new")}>Add</button>
-            )}
+            )}*/}
 
-            <table border="1" cellPadding={5} style={{ marginTop: "1rem" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
+                <h2>Products</h2>
+                {user?.role === "admin" && (
+                    <button onClick={() => navigate("/products/new")}>+ Add New Product</button>
+                )}
+            </div>
+
+            {/*< table border="1" cellPadding={5} style={{ marginTop: "1rem" }}>*/}
+            <table className="product-table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -49,7 +57,7 @@ const Products = () => {
                             <td>${p.price}</td>
                             <td>{p.inStock ? "Yes" : "No"}</td>
                             {user?.role === "admin" && (
-                                <td>
+                                <td className="actions"> 
                                     <Link to={`/products/${p._id}/edit`}>Edit</Link>{" "}
                                     <button onClick={() => del(p._id)}>Delete</button>
                                 </td>
@@ -57,7 +65,7 @@ const Products = () => {
                         </tr>
                     ))}
                     {products.length === 0 && (
-                        <tr>
+                        <tr className="empty-row">
                             <td colSpan={4}>No products yet.</td>
                         </tr>
                     )}

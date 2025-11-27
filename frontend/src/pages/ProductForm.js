@@ -43,10 +43,10 @@ const ProductForm = () => {
     };
 
     return (
-        <div>
+        <div className="form-container">
             <h2>{edit ? "Edit Product" : "New Product"}</h2>
             <form onSubmit={submit}>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Name"
                         value={name}
@@ -54,7 +54,7 @@ const ProductForm = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Price"
                         type="number"
@@ -63,14 +63,14 @@ const ProductForm = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <textarea
                         placeholder="Description"
                         value={desc}
                         onChange={(e) => setDesc(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <label>
                         <input
                             type="checkbox"

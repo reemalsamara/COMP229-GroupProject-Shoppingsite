@@ -21,18 +21,18 @@ const Login = () => {
     };
 
     return (
-        <div>
+        <div className="form-container"> 
             <h2>Sign In</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p className="error-message">{error}</p>}
             <form onSubmit={submit}>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Password"
                         type="password"

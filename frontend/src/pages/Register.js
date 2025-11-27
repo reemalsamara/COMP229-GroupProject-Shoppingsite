@@ -29,11 +29,11 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div className="form-container">
             <h2>Create Account</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
             <form onSubmit={submit}>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Name"
                         value={name}
@@ -41,7 +41,7 @@ const Register = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Email"
                         type="email"
@@ -50,7 +50,7 @@ const Register = () => {
                         required
                     />
                 </div>
-                <div>
+                <div className="form-group">
                     <input
                         placeholder="Password"
                         type="password"

@@ -5,6 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import './App.css';
 
 import { AuthProvider, useAuth } from "./AuthContext";
 import Navbar from "./components/Navbar";
@@ -16,6 +17,7 @@ import Profile from "./pages/Profile";
 import Products from "./pages/Products";
 import ProductForm from "./pages/ProductForm";
 import NotFound from "./pages/NotFound";
+
 
 const ProtectedRoute = ({ children, roles }) => {
   const { user } = useAuth();
@@ -32,9 +34,10 @@ const ProtectedRoute = ({ children, roles }) => {
 const App = () => {
   return (
     <AuthProvider>
+      <div className="app-container">
       <Router>
         <Navbar />
-        <div style={{ padding: "1rem" }}>
+        <div className="page-content" /*style={{ padding: "1rem" }}*/>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -80,6 +83,7 @@ const App = () => {
           </Routes>
         </div>
       </Router>
+      </div>
     </AuthProvider>
   );
 };

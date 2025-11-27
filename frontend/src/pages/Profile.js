@@ -7,7 +7,7 @@ const Profile = () => {
     if (!user) return null;
 
     return (
-        <div>
+        <div className="profile-card">
             <h2>My Profile</h2>
             <p>
                 <b>Name:</b> {user.name}
