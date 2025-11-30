@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../AuthContext";
-import logoImg from "..\\frontend\\public\\logo192.png";
-
+import logo from "../assets/logo192.png";
 
 const Navbar = () => {
     const { user, logout } = useAuth();
@@ -12,24 +11,17 @@ const Navbar = () => {
         location.pathname === path ? { fontWeight: "bold" } : {};
 
     return (
-        <nav className="navbar"
-            /*style={{
-                display: "flex",
-                justifyContent: "space-between",
-                padding: "1rem",
-                background: "#eee",
-            }}*/
-        >
-            <div className="navbar-brand"> {/* Combined logo and brand */}
+        <nav className="navbar">
+            <div className="navbar-brand">
                 <Link to="/">
                     <div className="logo">
-                        <img src={logoImg} alt="ShopStack Logo" />
+                        <img src={logo} alt="ShopStack Logo" />
                     </div>
                     <h1>ShopStack</h1>
                 </Link>
             </div>
 
-            <div className="nav-links" /*style={{ display: "flex", gap: "1rem", alignItems: "center" }}*/>
+            <div className="nav-links">
                 <Link to="/" style={active("/")}>
                     Home
                 </Link>
@@ -66,3 +58,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
