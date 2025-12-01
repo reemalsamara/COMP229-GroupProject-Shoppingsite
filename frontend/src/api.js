@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "/api", // proxy to backend
+    baseURL: "https://shopstack-backend-pzxk.onrender.com/api"
 });
 
 api.interceptors.request.use((config) => {
