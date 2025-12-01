@@ -1,21 +1,32 @@
-// server.js
 const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./backend/config/db");
 const cors = require("cors");
 
 dotenv.config();
-
-// Connect to MongoDB
 connectDB();
 
 const app = express();
 
-// 🔹 Simple CORS for now (allow everything)
-app.use(cors());
+// ✅ CORS configuration
+const allowedOrigins = [
+    "http://localhost:3000",          // local React dev
+    "https://shopstack-frontend.onrender.com"
+];
 
-// OR if you want just localhost for dev:
-// app.use(cors({ origin: "http://localhost:3000", credentials: true }));
+app.use(
+    cors({
+        origin: function (origin, callback) {
+            // allow requests with no origin (like Postman, curl)
+            if (!origin) return callback(null, true);
+            if (allowedOrigins.includes(origin)) {
+                return callback(null, true);
+            }
+            return callback(new Error("Not allowed by CORS"));
+        },
+        credentials: true,
+    })
+);
 
 app.use(express.json());
 
@@ -24,7 +35,7 @@ app.get("/", (req, res) => {
     res.send("Shopping Website API is running...");
 });
 
-// API routes
+// Routes
 app.use("/api/auth", require("./backend/routes/authRoutes"));
 app.use("/api/users", require("./backend/routes/userRoutes"));
 app.use("/api/products", require("./backend/routes/productRoutes"));
