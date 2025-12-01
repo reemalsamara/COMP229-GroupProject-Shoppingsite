@@ -16,6 +16,11 @@ const Home = () => {
     return (
         <div>
             <h1>Welcome to ShopStack</h1>
+
+            <p style={{ marginTop: "1rem", fontWeight: "bold" }}>
+                CI/CD Demo: This message was deployed automatically from a GitHub branch merge.
+            </p>
+
             <div className="promo-banner">
                 <img
                     src={homeBanner}
